@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Contratos - CONEXION ISP SAS</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f5f7fa;
+  }
+
+  /* Pantalla de carga mientras el iframe termina de cargar */
+  #loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f7fa;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+  }
+  #loader.oculto {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .spinner {
+    width: 42px;
+    height: 42px;
+    border: 4px solid #d6e4ff;
+    border-top-color: #1a56db;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+    margin-bottom: 14px;
+  }
+  @keyframes girar { to { transform: rotate(360deg); } }
+  #loader p {
+    color: #4b5563;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  iframe#appFrame {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Cargando Generador de Contratos...</p>
+  </div>
+
+  <!--
+    ⚠️ IMPORTANTE:
+    Reemplaza la URL de abajo por la URL de TU implementación (deployment)
+    de Apps Script. Debe terminar en /exec, por ejemplo:
+    https://script.google.com/macros/s/AKfycb.../exec
+  -->
+  <iframe
+    id="appFrame"
+    src="https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxL8tFZabuchS-w2wLRV3mJUtcsr_dTrtcQbvxae47Gr2pIk1lkKPaOLGN7HPtmy_o/exec
+"
+    title="Generador de Contratos - CONEXION ISP SAS"
+    allow="clipboard-write"
+    onload="document.getElementById('loader').classList.add('oculto')">
+  </iframe>
+
+</body>
+</html>
